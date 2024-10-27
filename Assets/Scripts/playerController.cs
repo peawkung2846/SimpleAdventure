@@ -7,7 +7,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {   
     public float walkSpeed = 5f;
-    Vector2 moveInput;
+    Vector2 moveInput = Vector2.zero;
 
     [SerializeField]
     private bool _isMoving = false;
@@ -67,7 +67,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log($"{moveInput}");
     }
 
     private void FixedUpdate(){
@@ -75,6 +75,7 @@ public class playerController : MonoBehaviour
     }
 
     public void OnMove(InputAction.CallbackContext context){
+        
         moveInput = context.ReadValue<Vector2>();
         IsMoving = moveInput != Vector2.zero;
 
