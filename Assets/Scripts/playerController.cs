@@ -3,11 +3,35 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D),typeof(TouchingDirection))]
 public class playerController : MonoBehaviour
 {   
     public float walkSpeed = 5f;
+
+    public float runSpeed = 10f;
+
+    public float airSpeed = 8f;
+
+    public float CurrentMoveSpeed{get{
+        if(touchingDirection.IsOnWall){
+            return 0;
+        }
+        if(!touchingDirection.IsGround){
+            return airSpeed;
+        }
+        if(IsMoving && !touchingDirection.IsOnWall){
+            if(IsRunning){
+                return runSpeed;
+            }
+            return walkSpeed;
+        }
+        return 0;
+    }}
+    public float jumpImpulse = 20f;
     Vector2 moveInput = Vector2.zero;
+
+    TouchingDirection touchingDirection;
+
 
     [SerializeField]
     private bool _isMoving = false;
@@ -56,6 +80,7 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); 
+        touchingDirection = GetComponent<TouchingDirection>();
     }
 
     // Start is called before the first frame update
@@ -67,11 +92,13 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"{moveInput}");
+
     }
 
     private void FixedUpdate(){
-        rb.velocity = new Vector2(moveInput.x*walkSpeed,rb.velocity.y);
+        rb.velocity = new Vector2(moveInput.x*CurrentMoveSpeed,rb.velocity.y);
+
+        animator.SetFloat("yVelocity",rb.velocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context){
@@ -80,6 +107,12 @@ public class playerController : MonoBehaviour
         IsMoving = moveInput != Vector2.zero;
 
         SetFacingDirection(moveInput);
+    }
+    public void OnJump(InputAction.CallbackContext context){
+        if(context.started && touchingDirection.IsGround){
+            animator.SetTrigger("jump");
+            rb.velocity = new Vector2(rb.velocity.x,jumpImpulse);
+        }
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -97,11 +130,9 @@ public class playerController : MonoBehaviour
     public void OnRun(InputAction.CallbackContext context){
         if(context.started){
             IsRunning = true;
-            walkSpeed = 8;
         }
         else if(context.canceled){
             IsRunning = false;
-            walkSpeed = 5;
         }
 
     }
