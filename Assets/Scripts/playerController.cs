@@ -13,19 +13,30 @@ public class playerController : MonoBehaviour
     public float airSpeed = 8f;
 
     public float CurrentMoveSpeed{get{
-        if(touchingDirection.IsOnWall){
+        if (CanMove)
+        {
+            if(touchingDirection.IsOnWall){
+                return 0;
+            }
+            if(!touchingDirection.IsGround){
+                return airSpeed;
+            }
+            if(IsMoving && !touchingDirection.IsOnWall){
+                if(IsRunning){
+                    return runSpeed;
+                }
+                return walkSpeed;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
             return 0;
         }
-        if(!touchingDirection.IsGround){
-            return airSpeed;
-        }
-        if(IsMoving && !touchingDirection.IsOnWall){
-            if(IsRunning){
-                return runSpeed;
-            }
-            return walkSpeed;
-        }
-        return 0;
+        
     }}
     public float jumpImpulse = 20f;
     Vector2 moveInput = Vector2.zero;
@@ -44,6 +55,16 @@ public class playerController : MonoBehaviour
             _isMoving = value;
             animator.SetBool("isMoving",value);
         }
+    }
+
+    public bool CanMove { get
+        {
+            return animator.GetBool("canMove");
+        } }
+
+    public bool IsAlive
+    {
+        get { return animator.GetBool("isAlive"); }
     }
 
     [SerializeField]
@@ -104,12 +125,21 @@ public class playerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context){
         
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
 
-        SetFacingDirection(moveInput);
+        if (IsAlive)
+        {
+            IsMoving = moveInput.x != 0;
+
+            SetFacingDirection(moveInput);
+        }
+        else
+        {
+            IsMoving=false;
+        }
+        
     }
     public void OnJump(InputAction.CallbackContext context){
-        if(context.started && touchingDirection.IsGround){
+        if(context.started && touchingDirection.IsGround && CanMove){
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x,jumpImpulse);
         }
@@ -135,5 +165,13 @@ public class playerController : MonoBehaviour
             IsRunning = false;
         }
 
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+       if (context.started)
+        {
+            animator.SetTrigger("attack");
+        }
     }
 }
