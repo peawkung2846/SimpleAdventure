@@ -99,11 +99,9 @@ public class Knight : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnHit(int damage, Vector2 knockback)
     {
-        
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
     }
-
     
 }
