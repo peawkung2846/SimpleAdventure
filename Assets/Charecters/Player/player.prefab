@@ -40,7 +40,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362180509958540471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 2884743769262284554}
   - component: {fileID: 1739871512965074684}
   - component: {fileID: 3550571102595435880}
+  - component: {fileID: 7018415134331522986}
   m_Layer: 7
   m_Name: player
   m_TagString: Untagged
@@ -144,6 +145,7 @@ Transform:
   - {fileID: 5570195354464358462}
   - {fileID: 4927655072441687102}
   - {fileID: 7146092968077528712}
+  - {fileID: 2518182271313855338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2544745420947408839
@@ -377,6 +379,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 84f7208d-837c-44b7-abd2-08e16b3b7a66
     m_ActionName: Player/Jump
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5675067421856167251}
+        m_TargetAssemblyTypeName: playerController, Assembly-CSharp
+        m_MethodName: OnRangedAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 696565f9-0b5e-4db3-b8a1-d4c2bae0fd43
+    m_ActionName: Player/RangeAttack[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -502,6 +520,20 @@ MonoBehaviour:
   _isAlive: 1
   isInvincible: 0
   invincibilityTimer: 0.25
+--- !u!114 &7018415134331522986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824737841129618483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ff47b4fee11ae4cade1d75ff4a628c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6005394950382737680, guid: 57ea4f8d1e6878541af8f6213965704f, type: 3}
+  launchPoint: {fileID: 2518182271313855338}
 --- !u!1 &4888631695492873803
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +574,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4888631695492873803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -606,6 +638,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 15
   knockback: {x: 3, y: 2}
+--- !u!1 &4944001753917587713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2518182271313855338}
+  m_Layer: 7
+  m_Name: BowAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2518182271313855338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944001753917587713}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.95, y: -0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3896405659834781189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7272418898573120245
 GameObject:
   m_ObjectHideFlags: 0
