@@ -77,14 +77,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.4909096, y: 0.5765724}
-      - {x: 2.9403343, y: 1.2246089}
-      - {x: 2.3398876, y: 1.4233408}
-      - {x: 1.1929369, y: 1.3912239}
-      - {x: 1.8404756, y: -0.5741662}
-      - {x: 3.3443503, y: -1.0540454}
-      - {x: 3.6661358, y: -0.68698645}
-      - {x: 3.768878, y: -0.05852467}
+    - - {x: 4.588735, y: 0.6223151}
+      - {x: 4.160139, y: 1.2246089}
+      - {x: 3.1327608, y: 1.5758169}
+      - {x: 1.5283865, y: 1.6656804}
+      - {x: 2.6715367, y: 1.3871397}
+      - {x: 3.1475868, y: 1.2098527}
+      - {x: 3.3895874, y: 0.74459344}
+      - {x: 3.2984262, y: 0.3572034}
+      - {x: 2.4942412, y: -0.03891138}
+      - {x: 1.3661711, y: -0.22888733}
+      - {x: 0.90548843, y: -0.121415906}
+      - {x: 0.14857662, y: -0.4459569}
+      - {x: 0.32441023, y: -0.68666434}
+      - {x: 1.0221055, y: -0.9113129}
+      - {x: 2.0691924, y: -1.0010986}
+      - {x: 3.2681146, y: -0.8863219}
+      - {x: 4.0625744, y: -0.4735199}
+      - {x: 4.546505, y: -0.043276995}
   m_UseDelaunayMesh: 0
 --- !u!114 &3888754437865027879
 MonoBehaviour:
@@ -181,8 +191,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1687030214, guid: ddb532d21bb1a094d825357330a7e5be, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -1868315213, guid: e1591688ef105da40a4a0e25af627479, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -252,8 +262,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10126686, y: 0.009358883}
-  m_Size: {x: 1.0660019, y: 2.338377}
+  m_Offset: {x: 0.28365436, y: -0.028502163}
+  m_Size: {x: 1.2048305, y: 3.196563}
   m_Direction: 0
 --- !u!114 &2025709534416262397
 MonoBehaviour:
@@ -352,6 +362,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -513,7 +526,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.99200547, y: -0.023158789}
+  m_Offset: {x: 0.98541737, y: 0.07855083}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -524,7 +537,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1052573, y: 0.8602601}
+  m_Size: {x: 4.2835836, y: 1.0636793}
   m_EdgeRadius: 0
 --- !u!114 &8001085804049720530
 MonoBehaviour:

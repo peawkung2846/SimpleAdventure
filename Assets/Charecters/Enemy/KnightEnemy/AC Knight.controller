@@ -396,7 +396,7 @@ MonoBehaviour:
   playOnEnter: 0
   playOnExit: 0
   playAfterDelay: 1
-  playDelay: 0.25
+  playDelay: 0.5
   hasDelayedSoundPlayed: 0
 --- !u!114 &3159369393486998574
 MonoBehaviour:
