@@ -78,8 +78,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37494183, y: 0.15894055}
-  m_Size: {x: 2.456316, y: 2.561325}
+  m_Offset: {x: -1.022603, y: 0.15894055}
+  m_Size: {x: 3.7516384, y: 3.7516384}
   m_Direction: 0
 --- !u!1 &5641943628072027819
 GameObject:
@@ -163,6 +163,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 10
   knockback: {x: 0, y: 0}
+--- !u!1 &6918641506443567954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5418556567041971064}
+  - component: {fileID: 2524522813819583161}
+  - component: {fileID: 7352973494328588919}
+  m_Layer: 10
+  m_Name: VIew
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5418556567041971064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918641506443567954}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7095947, y: 0.0035432577, z: 0.020564094}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2318000905829477361}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2524522813819583161
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918641506443567954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.93009186, y: 0}
+  m_Size: {x: 6.484787, y: 6.484787}
+  m_Direction: 0
+--- !u!114 &7352973494328588919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918641506443567954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c5c90040e71674099294417f2ba805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyingEye: {fileID: 2746926801371288090}
 --- !u!1 &7180325305152771928
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +281,7 @@ Transform:
   m_Children:
   - {fileID: 70153292653264489}
   - {fileID: 4533355927860320453}
+  - {fileID: 5418556567041971064}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3065402749931255377
@@ -353,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightSpeed: 2
   _hasTarget: 0
+  viewTransform: {fileID: 5418556567041971064}
   waypoints: []
   biteDetectionZone: {fileID: 866332255048850122}
   wayPointReachedDistance: 0.1

@@ -81,7 +81,7 @@ public class Knight : MonoBehaviour
         if((touchingDirection.IsOnWall && touchingDirection.IsGround) || (cliftDetectionZone.detectionColliders.Count == 0 && touchingDirection.IsGround))
         {
             FlipDirection();
-            Debug.Log(cliftDetectionZone.detectionColliders.Count);
+            // Debug.Log(cliftDetectionZone.detectionColliders.Count);
         }
 
         if(CanMove)

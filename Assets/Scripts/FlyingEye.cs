@@ -11,8 +11,11 @@ public class FlyingEye : MonoBehaviour
     int waypointsIndex = 0;
 
     Transform nextWaypoint;
+    public Transform viewTransform;
 
     public List<Transform> waypoints;
+
+    private Collider2D viewCollider;
 
     public bool HasTarget { get { return _hasTarget; } private set
         {
@@ -28,6 +31,9 @@ public class FlyingEye : MonoBehaviour
 
     Damageable damageable;
 
+    private float waypointTimer = 0f; // Timer to track time spent trying to reach the current waypoint
+    private const float waypointTimeout = 5f; // Timeout in seconds
+
 
 
     public bool CanMove
@@ -39,6 +45,7 @@ public class FlyingEye : MonoBehaviour
 
     private void Awake()
     {
+        viewCollider = viewTransform.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         // touchingDirection = GetComponent<TouchingDirection>();
         animator = GetComponent<Animator>();
@@ -71,37 +78,41 @@ public class FlyingEye : MonoBehaviour
 
     private void Flight(){
         Vector2 direction = (nextWaypoint.position - transform.position).normalized;
-        float distance =  Vector2.Distance(nextWaypoint.position,transform.position);
+        float distance = Vector2.Distance(nextWaypoint.position, transform.position);
         rb.velocity = direction * flightSpeed;
-        if(distance <= wayPointReachedDistance){
-            waypointsIndex = (waypointsIndex+1)%waypoints.Count;
+
+        waypointTimer += Time.deltaTime;
+
+        if (distance <= wayPointReachedDistance)
+        {
+            waypointTimer = 0f;
+            waypointsIndex = (waypointsIndex + 1) % waypoints.Count;
+            nextWaypoint = waypoints[waypointsIndex];
+        }
+        else if (waypointTimer >= waypointTimeout)
+        {
+            // Debug.LogWarning("Waypoint timeout reached. Resetting to default waypoint.");
+            waypointTimer = 0f;
             nextWaypoint = waypoints[waypointsIndex];
         }
 
         Vector3 localScale = transform.localScale;
 
-        if(transform.localScale.x > 0){
-            if(rb.velocity.x<0){
-                transform.localScale = new Vector3(-1*localScale.x,localScale.y,localScale.z);
-            }
+        if (transform.localScale.x > 0 && rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1 * localScale.x, localScale.y, localScale.z);
         }
-        else{
-            if(rb.velocity.x>0){
-                transform.localScale = new Vector3(-1*localScale.x,localScale.y,localScale.z);
-            }
+        else if (transform.localScale.x < 0 && rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(-1 * localScale.x, localScale.y, localScale.z);
         }
     }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+       public void SetWaypoint(Vector3 position)
     {
-        Transform damageable = collision.GetComponent<Transform>();
-        if (damageable != null)
-        {
-           Vector3 playerPosition = collision.transform.position;
-            Transform waypoint = new GameObject("PlayerDetectedWaypoint").transform; 
-            waypoint.position = playerPosition;
-            nextWaypoint = waypoint;
-        }
+        Transform waypoint = new GameObject("PlayerDetectedWaypoint").transform;
+        waypoint.position = position;
+        nextWaypoint = waypoint;
     }
     public void OnHit(int damage, Vector2 knockback)
     {
