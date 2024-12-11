@@ -176,8 +176,8 @@ GameObject:
   - component: {fileID: 4129410391439189677}
   - component: {fileID: 8145448992061302876}
   - component: {fileID: 4729720336495319685}
-  - component: {fileID: 3970228439782134057}
   - component: {fileID: 2746926801371288090}
+  - component: {fileID: 8998598165824034803}
   m_Layer: 8
   m_Name: FlyingEye
   m_TagString: Untagged
@@ -280,7 +280,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8145448992061302876
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -336,27 +336,6 @@ MonoBehaviour:
   _isAlive: 1
   isInvincible: 0
   invincibilityTimer: 0.25
---- !u!95 &3970228439782134057
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180325305152771928}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53ce0eed486a6b74aba8d0b8ff98387d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2746926801371288090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,3 +353,24 @@ MonoBehaviour:
   waypoints: []
   biteDetectionZone: {fileID: 866332255048850122}
   wayPointReachedDistance: 0.1
+--- !u!95 &8998598165824034803
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180325305152771928}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e030c38013663d547b88d221f0c8cf6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

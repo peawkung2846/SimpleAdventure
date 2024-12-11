@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa317d64367ba74abd51629aeac78cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 25
+  attackDamage: 10
   knockback: {x: 5, y: 2}
 --- !u!1 &1362180509958540471
 GameObject:
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
-  knockback: {x: 3, y: 2}
+  knockback: {x: 0, y: 0}
 --- !u!1 &3824737841129618483
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 7018415134331522986}
   m_Layer: 7
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,6 +504,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 696565f9-0b5e-4db3-b8a1-d4c2bae0fd43
     m_ActionName: Player/RangeAttack[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f90954a0-ee07-4307-8808-97ea512f2452
+    m_ActionName: UI/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -749,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa317d64367ba74abd51629aeac78cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 25
+  attackDamage: 15
   knockback: {x: 5, y: 2}
 --- !u!1 &4888631695492873803
 GameObject:
@@ -854,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 15
-  knockback: {x: 3, y: 2}
+  knockback: {x: 1, y: 1}
 --- !u!1 &4944001753917587713
 GameObject:
   m_ObjectHideFlags: 0

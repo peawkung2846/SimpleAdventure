@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class FlyingEye : MonoBehaviour
@@ -90,5 +89,9 @@ public class FlyingEye : MonoBehaviour
                 transform.localScale = new Vector3(-1*localScale.x,localScale.y,localScale.z);
             }
         }
+    }
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
     }
 }
