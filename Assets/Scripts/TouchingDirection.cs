@@ -32,7 +32,6 @@ public class TouchingDirection : MonoBehaviour
         animator.SetBool("isOnCeiling",value);
     }}
     public bool IsOnWall {get{
-
         return _isOnWall;
     }private set{
         _isOnWall = value;

@@ -29,6 +29,7 @@ public class FlyingEye : MonoBehaviour
     Damageable damageable;
 
 
+
     public bool CanMove
     {
         get { return animator.GetBool("canMove"); }
@@ -88,6 +89,18 @@ public class FlyingEye : MonoBehaviour
             if(rb.velocity.x>0){
                 transform.localScale = new Vector3(-1*localScale.x,localScale.y,localScale.z);
             }
+        }
+    }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Transform damageable = collision.GetComponent<Transform>();
+        if (damageable != null)
+        {
+           Vector3 playerPosition = collision.transform.position;
+            Transform waypoint = new GameObject("PlayerDetectedWaypoint").transform; 
+            waypoint.position = playerPosition;
+            nextWaypoint = waypoint;
         }
     }
     public void OnHit(int damage, Vector2 knockback)
