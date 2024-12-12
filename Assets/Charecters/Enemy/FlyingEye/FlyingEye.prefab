@@ -228,8 +228,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.93009186, y: 0}
-  m_Size: {x: 6.484787, y: 6.484787}
+  m_Offset: {x: -4.198229, y: -1.9200296}
+  m_Size: {x: 13.021061, y: 13.021061}
   m_Direction: 0
 --- !u!114 &7352973494328588919
 MonoBehaviour:
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6918641506443567954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c5c90040e71674099294417f2ba805, type: 3}
+  m_Script: {fileID: 11500000, guid: 83683f87627ecf141a97f893f8320a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flyingEye: {fileID: 2746926801371288090}

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GamePlayScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: be9790375e1e31b4998553b112f37b57
+  - enabled: 1
+    path: Assets/Scenes/GameEndScene.unity
+    guid: 1b32eebf2a6bbf14ab95ad17367fee8e
+  - enabled: 1
     path: Assets/Scenes/QuitScene.unity
     guid: 8aeeb803e0951ab44adf54b70fe2f127
   m_configObjects: {}
